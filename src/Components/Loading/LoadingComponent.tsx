@@ -7,7 +7,8 @@ export default function LoadingComponent() {
   return (
     <div className={classes.root}>
       <GridLoader
-        color={"#96DEDA"}
+        color={"#60A7A3"}
+        size={40}
       />
     </div>
   );

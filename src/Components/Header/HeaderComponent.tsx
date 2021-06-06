@@ -15,11 +15,7 @@ export default function HeaderComponent() {
     >
       <Grid item xs={6}>
         <div className={classes.leftItem}>
-          <Typography
-            style={{ color: "#0B7171", fontWeight: 500 }}
-            variant="h5"
-            component="h2"
-          >
+          <Typography color="primary" variant="h5" component="h2">
             Lotus
           </Typography>
           <img

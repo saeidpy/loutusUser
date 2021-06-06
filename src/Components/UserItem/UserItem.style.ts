@@ -6,10 +6,11 @@ const useStyle = makeStyles((theme) => ({
     borderRadius: "51px !important",
     margin: "auto",
     zoom: 1.1,
+    boxShadow:
+      "0px 0px 20px 10px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)",
   },
   CardContent: {
     background: "linear-gradient(313.37deg, #50C9C3 6.19%, #96DEDA 95.6%)",
-    boxShadow: "-9px 0px 29px rgba(89, 197, 186, 0.397864)",
     padding: "30px !important",
   },
   buttonIcon: {

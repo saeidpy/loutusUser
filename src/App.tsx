@@ -10,7 +10,6 @@ const queryClient = new QueryClient();
 
 function App(props: { width: Breakpoint }) {
   const isWeb = isWidthUp("md", props.width);
-  console.log("🚀 ~ file: App.tsx ~ line 13 ~ App ~ isWeb", isWeb)
   return isWeb ? (
     <QueryClientProvider client={queryClient}>
       <LayoutComponent />

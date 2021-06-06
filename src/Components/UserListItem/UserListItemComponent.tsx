@@ -3,9 +3,10 @@ import {
   CardActionArea,
   CardContent,
   CardMedia,
-  Typography,
+  Typography
 } from "@material-ui/core";
 import React from "react";
+import { theme } from "../../theme";
 import { useStyle } from "./UserListItem.style";
 
 interface UserListItem {
@@ -29,7 +30,7 @@ export default function UserListItemComponent(props: UserListItem) {
       style={{
         background: checked
           ? " linear-gradient(44.39deg, #50C9C3 6.16%, #96DEDA 94.73%)"
-          : "#ffff",
+          : theme.palette.secondary.main,
         paddingLeft: checked ? "40px" : "",
         transform: checked ? "translateX(-50px)" : "",
         animation: checked ? "shimmy 0.5s" : "unshimmy 0.5s",

@@ -10,6 +10,7 @@ import RemoveCircleSharpIcon from "@material-ui/icons/RemoveCircleSharp";
 import React from "react";
 import { useQuery } from "react-query";
 import { getUser, User, UserParams } from "../../Services/UserServices";
+import LoadingComponent from "../Loading/LoadingComponent";
 import { useStyle } from "./UserItem.style";
 
 interface UserItem {
@@ -20,7 +21,8 @@ interface UserItem {
 export default function UserItemComponent(props: UserItem) {
   const classes = useStyle();
   const { selected, handleOnClick } = props;
-  const { data } = useQuery<User, UserParams, User, any>(
+
+  const { isLoading, data } = useQuery<User, UserParams, User, any>(
     ["user", { userId: selected }],
     getUser,
     {
@@ -28,12 +30,17 @@ export default function UserItemComponent(props: UserItem) {
       cacheTime: 0,
     }
   );
+
   if (!data) return null;
+
   const {
     data: { avatar, first_name, last_name, email },
     support: { text },
   } = data!;
-  return (
+
+  return isLoading ? (
+    <LoadingComponent />
+  ) : (
     <div
       style={{
         animation: "unshimmy2 0.8s",
@@ -50,7 +57,8 @@ export default function UserItemComponent(props: UserItem) {
         <Grid item xs={6}>
           <Typography
             variant="h3"
-            style={{ fontWeight: "bold", color: "#fff" }}
+            style={{ fontWeight: "bold" }}
+            color="secondary"
           >
             Profile
           </Typography>
@@ -58,7 +66,8 @@ export default function UserItemComponent(props: UserItem) {
         <Grid item xs={6}>
           <IconButton className={classes.buttonIcon} onClick={handleOnClick}>
             <RemoveCircleSharpIcon
-              style={{ width: "50px", height: "50px", color: "#fff" }}
+              style={{ width: "50px", height: "50px" }}
+              color="secondary"
             />
           </IconButton>
         </Grid>
@@ -73,33 +82,31 @@ export default function UserItemComponent(props: UserItem) {
         />
         <CardContent className={classes.CardContent}>
           <Typography
-            style={{ color: "#fff", fontWeight: "bold" }}
+            style={{ fontWeight: "bold" }}
             variant="h5"
-            component="h2"
+            color="secondary"
           >
             {`${first_name} ${last_name}`}
           </Typography>
           <Typography
             style={{
-              color: "#fff",
               fontWeight: "normal",
               marginBottom: "20px",
             }}
             variant="caption"
             component="h2"
+            color="secondary"
           >
             {email}
           </Typography>
           <Typography
             variant="body1"
             style={{
-              color: "#fff",
               fontWeight: "lighter",
               fontSize: ".7rem",
               marginBottom: "20px",
             }}
-            color="textSecondary"
-            component="p"
+            color="secondary"
           >
             {text}
           </Typography>

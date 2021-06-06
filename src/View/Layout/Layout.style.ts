@@ -5,17 +5,18 @@ const useStyle = makeStyles((theme) => ({
     width: "100vw",
     height: "100vh",
     overflow: "hidden",
-  },
-  gradient: {
-    left: "-45%",
-    position: "absolute",
-    width: "100%",
-    height: "100%",
-    background:
-      "linear-gradient(224.34deg, rgb(120, 255, 214) 3.69%, rgb(0, 121, 145) 133.19%)",
-    borderRadius: "45px 118px",
-    transform: "skewX(339deg)",
-    zIndex: -1,
+    "&::before": {
+      content: "close-quote",
+      left: "-45%",
+      position: "absolute",
+      width: "100%",
+      height: "100%",
+      background:
+        "linear-gradient(224.34deg, rgb(120, 255, 214) 3.69%, rgb(0, 121, 145) 133.19%)",
+      borderRadius: "45px 118px",
+      transform: "skewX(339deg)",
+      zIndex: -1,
+    },
   },
   rootGrid: {
     height: "100%",
@@ -28,7 +29,9 @@ const useStyle = makeStyles((theme) => ({
       display: "none",
     },
   },
-
+  item: {
+    height: "80%",
+  },
 }));
 
 export { useStyle };
